@@ -4,6 +4,10 @@ import dotenv from "dotenv"
 import userRoute from "../api/routes/user.route.js"
 import authenticationRoute from "../api/routes/authentication.route.js"
 import gigRoute from '../api/routes/gig.route.js'
+import reviewRoute from '../api/routes/review.route.js'
+import orderRoute from '../api/routes/order.route.js'
+
+
 import cookieParser from "cookie-parser";
 import cors from "cors"
 
@@ -41,6 +45,8 @@ app.use((err,req,res,next)=>{
 app.use("/api/users",userRoute)
 app.use("/api/authentication",authenticationRoute)
 app.use("/api/gigs",gigRoute)
+app.use("/api/reviews",reviewRoute)
+app.use("/api/order",orderRoute)
 
 app.listen(8080, () => {
     db()

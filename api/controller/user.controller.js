@@ -12,3 +12,11 @@ export const userDelete = async (req, res,next) => {
     res.status(200).send("User deleted Successfully")
   
 };
+
+export const getSingleUser = async(req,res,next)=>{
+  const user = await User.findById(req.params.id)
+  if(req.userId !== user._id.toString()){
+    return next(createError(401,"Unauthorized"))
+}
+  res.status(200).send(user)
+}
